@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/qadb')
 const { Schema } = mongoose;
 
 // possible to use array of SchemaTypes for related_answers and related_photos?
@@ -13,7 +14,9 @@ const questionSchema = new Schema({
   reported: { type: Boolean, default: false },
   question_helpful: { type: Number, required: true},
   related_answers: [Number]
-})
+});
+
+const Question = mongoose.model('Question', questionSchema);
 
 const answerSchema = new Schema ({
   answer_id: { type: Number, unique: true},
@@ -25,10 +28,14 @@ const answerSchema = new Schema ({
   answer_reported: { type: Boolean, default: false }
   answer_helpful: { type: Number, required: true},
   related_photos: [Number]
-})
+});
+
+const Answer = mongoose.model('Answer', answerSchema);
 
 const photoSchema = new Schema ({
   photo_id: { type: Number, unique: true},
   question_id: { type: Number, required: true},
   photo_url: { type: String, required: true }
 })
+
+const Photo = mongoose.model('Photo', photoSchema);

@@ -1,28 +1,36 @@
 /* This file contains my database table designs for my postgres tables */
-CREATE TABLE [IF NOT EXISTS] questions (
+
+/* DROP PREVIOUS SCHEMAS IF THEY EXIST */
+DROP TABLE IF EXISTS questions CASCADE;
+DROP TABLE IF EXISTS answers CASCADE;
+DROP TABLE IF EXISTS answerPhotos CASCADE;
+
+/* TO RUN IN TERMINAL 'psql -U connorfung -d qadbase -a -f server/db/schema.sql' */
+
+CREATE TABLE IF NOT EXISTS questions (
   question_id SERIAL PRIMARY KEY,
   product_id INTEGER NOT NULL,
   question_body VARCHAR(1000) NOT NULL,
-  question_date INTEGER NOT NULL,
+  question_date BIGINT NOT NULL,
   asker_name VARCHAR(60) NOT NULL,
   asker_email VARCHAR(60) NOT NULL,
   reported BOOLEAN DEFAULT false,
-  question_helpful INTEGER NOT NULL,
-)
+  question_helpful INTEGER NOT NULL
+);
 
-CREATE TABLE [IF NOT EXISTS] answers (
+CREATE TABLE IF NOT EXISTS answers (
   answer_id SERIAL PRIMARY KEY,
-  question_id INTEGER NOT NULL,
+  question_id INTEGER NOT NULL REFERENCES questions(question_id),
   answer_body VARCHAR(1000) NOT NULL,
-  answer_date INTEGER NOT NULL,
+  answer_date BIGINT NOT NULL,
   answerer_name VARCHAR(60) NOT NULL,
   answerer_email VARCHAR(60) NOT NULL,
   answer_reported BOOLEAN DEFAULT false,
-  answer_helpful INTEGER NOT NULL,
-)
+  answer_helpful INTEGER NOT NULL
+);
 
-CREATE TABLE [IF NOT EXISTS] answerPhotos (
+CREATE TABLE IF NOT EXISTS answerPhotos (
   photo_id SERIAL PRIMARY KEY,
-  question_id INTEGER NOT NULL,
-  photo_url TEXT NOT NULL,
-)
+  answer_id INTEGER NOT NULL REFERENCES answers(answer_id),
+  photo_url TEXT NOT NULL
+);
