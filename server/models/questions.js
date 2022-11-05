@@ -1,11 +1,11 @@
 const db = require('../db/db');
 
 module.exports = {
-  getQuestions: (productID) => {
-    const questionQueryString = `SELECT question_id, product_id, question_body, question_date, asker_name, question_helpful FROM questions WHERE product_id = ${productID} AND reported = false`;
+  getOne: (questionID) => {
+    const questionQueryString = `SELECT * FROM questions WHERE question_id = ${questionID}`;
     return db.query(questionQueryString);
   },
-  getQandA: async (productID) => {
+  getQandA: async (productID, page, count) => {
     // create a result object (see API for shape)
     const result = {
       product_id: productID,
@@ -41,7 +41,20 @@ module.exports = {
 
     return new Promise((res, rej) => res(result));
   },
-  // POST question
-  // PUT helpful
-  // PUT report
+  // GET request to add a new question
+  addQuestion: (newQuestion) => {
+    const inputs = Object.values(newQuestion);
+    const addQuestQuery = 'INSERT INTO questions (product_id, question_body, question_date, asker_name, asker_email, reported, question_helpful) VALUES ($4, $1, current_timestamp, $2, $3, false, 0)';
+    return db.query(addQuestQuery, inputs);
+  },
+  // mark a question as helpful
+  markHelpful: (questionID) => {
+    const queryString = `UPDATE questions SET question_helpful = question_helpful + 1 WHERE question_id = ${questionID}`;
+    return db.query(queryString);
+  },
+  // report a question
+  reportQuestion: (questionID) => {
+    const queryString = `UPDATE questions SET reported = true WHERE question_id = ${questionID}`;
+    return db.query(queryString);
+  },
 };

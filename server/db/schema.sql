@@ -38,3 +38,9 @@ CREATE TABLE IF NOT EXISTS answerPhotos (
 ALTER TABLE questions ALTER COLUMN question_date TYPE TIMESTAMP USING to_timestamp(question_date/1000);
 
 ALTER TABLE answers ALTER COLUMN answer_date TYPE TIMESTAMP USING to_timestamp(answer_date/1000);
+
+-- ALTER SEQUENCE questions_question_id_seq RESTART WITH 3518964;
+
+-- ALTER SEQUENCE answers_answer_id_seq RESTART WITH 6879307;
+
+-- ALTER SEQUENCE answerPhotos_photo_id_seq RESTART WITH 2063760;
