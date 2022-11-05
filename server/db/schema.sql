@@ -1,9 +1,9 @@
 /* This file contains my database table designs for my postgres tables */
 
 /* DROP PREVIOUS SCHEMAS IF THEY EXIST */
-DROP TABLE IF EXISTS questions CASCADE;
-DROP TABLE IF EXISTS answers CASCADE;
-DROP TABLE IF EXISTS answerPhotos CASCADE;
+-- DROP TABLE IF EXISTS questions CASCADE;
+-- DROP TABLE IF EXISTS answers CASCADE;
+-- DROP TABLE IF EXISTS answerPhotos CASCADE;
 
 /* TO RUN IN TERMINAL 'psql -U connorfung -d qadbase -a -f server/db/schema.sql' */
 
@@ -34,3 +34,7 @@ CREATE TABLE IF NOT EXISTS answerPhotos (
   answer_id INTEGER NOT NULL REFERENCES answers(answer_id),
   photo_url TEXT NOT NULL
 );
+
+ALTER TABLE questions ALTER COLUMN question_date TYPE TIMESTAMP USING to_timestamp(question_date/1000);
+
+ALTER TABLE answers ALTER COLUMN answer_date TYPE TIMESTAMP USING to_timestamp(answer_date/1000);

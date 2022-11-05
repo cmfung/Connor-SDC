@@ -13,3 +13,5 @@ const client = new Client ({
 client.connect()
   .then(() => console.log('\x1b[33m%s\x1b[0m', `Connected to Postgres DB on ${client.port}`))
   .catch((err) => console.log(err));
+
+  module.exports = client;
