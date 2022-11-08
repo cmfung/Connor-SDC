@@ -12,13 +12,14 @@ module.exports = {
       results: [],
     };
     // get all the questions associated with the input productID (json aggregate into an array)
-    const resultObjects = [];
+    let resultObjects = [];
 
     const questionQueryString = `SELECT * FROM questions WHERE product_id = ${productID} AND reported = false`;
 
     await db.query(questionQueryString)
       .then((data) => {
-        data.rows.forEach((item) => resultObjects.push(item));
+        resultObjects = data.rows;
+        // data.rows.forEach((item) => resultObjects.push(item));
       })
       .catch((err) => console.log(err));
 
@@ -55,6 +56,31 @@ module.exports = {
   // report a question
   reportQuestion: (questionID) => {
     const queryString = `UPDATE questions SET reported = true WHERE question_id = ${questionID}`;
+    return db.query(queryString);
+  },
+  getQandASubQuery: (productID) => {
+    const queryString = `SELECT json_agg(resultArr) FROM (SELECT json_build_object(
+      'question_id', question_id,
+      'question_body', question_body,
+      'question_date', question_date,
+      'asker_name', asker_name,
+      'question_helpfullness', question_helpful,
+      'answers', (SELECT json_object_agg(
+        answer_id, json_build_object(
+          'id', answer_id,
+          'body', answer_body,
+          'date', answer_date,
+          'answerer_name', answerer_name,
+          'helpfulness', answer_helpful,
+          'photos', (SELECT json_agg(
+            json_build_object(
+              'id', photo_id,
+              'url', photo_url
+            ))
+          FROM answerPhotos WHERE answerPhotos.answer_id = answers.answer_id)
+        )
+      ) FROM answers WHERE answers.question_id = questions.question_id)
+    ) AS resultArr FROM questions WHERE questions.product_id = ${productID}) AS res`;
     return db.query(queryString);
   },
 };

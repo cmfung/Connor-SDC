@@ -4,11 +4,12 @@ const answers = require('./controllers/answers');
 // const photos = require('./controllers/photos');
 
 /* Question Routes */
-router.get('/questions/:question_id', questions.getOne);
-router.get('/questions', questions.getAllByPID);
+// router.get('/questions/:question_id', questions.getOne);
+router.get('/questions/jscompile/', questions.getAllByPID);
 router.post('/questions', questions.postQuestion);
 router.put('/questions/:question_id/helpful', questions.helpful);
 router.put('/questions/:question_id/report', questions.report);
+router.get('/questions/subquery', questions.getQandASubQuery);
 
 /* Answer Routes */
 router.post('/questions/:question_id/answers', answers.addAnswer);
