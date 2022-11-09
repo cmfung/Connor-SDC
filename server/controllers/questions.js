@@ -33,7 +33,7 @@ module.exports = {
           product_id: req.query.productID,
           results: data.rows[0].json_agg,
         };
-        res.status(200).send(data);
+        res.status(200).send(returnObj);
       })
       .catch(() => res.status(400).send('Unable to get questions'));
   },
