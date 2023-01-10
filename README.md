@@ -15,5 +15,5 @@
 </ div>
 
 # Results
-<h1>Goal</h1>
+<h3>Goal</h3>
 
