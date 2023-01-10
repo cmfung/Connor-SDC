@@ -37,9 +37,9 @@
     <th>Error Rate</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>1000rps</td>
+    <td>90ms</td>
+    <td>0%</td>
   </tr>
 </table>
 
@@ -51,8 +51,8 @@
     <th>Error Rate</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>2000rps</td>
+    <td>135ms</td>
+    <td>0%</td>
   </tr>
 </table>
