@@ -18,9 +18,9 @@
 <h3>Goal</h3>
 <table>
   <tr>
-    <th>Throughput<th>
-    <th>Latency<th>
-    <th>Error Rate<th>
+    <th>Throughput</th>
+    <th>Latency</th>
+    <th>Error Rate</th>
   </tr>
   <tr>
     <td></td>
