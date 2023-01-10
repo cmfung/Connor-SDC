@@ -16,13 +16,15 @@
 
 <h2>Results</h2>
 <h3>Goal</h3>
-<tr>
-  <th>Throughput<th>
-  <th>Latency<th>
-  <th>Error Rate<th>
-</tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td></td>
-</tr>
+<table>
+  <tr>
+    <th>Throughput<th>
+    <th>Latency<th>
+    <th>Error Rate<th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
