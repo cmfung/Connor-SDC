@@ -23,9 +23,9 @@
     <th>Error Rate</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>1000rps</td>
+    <td>2000ms</td>
+    <td><1%</td>
   </tr>
 </table>
 
