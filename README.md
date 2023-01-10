@@ -2,7 +2,7 @@
 - Inherited a front-end e-commerce web application. Was tasked with replacing a monolithic API with microservices to support the inherited website.
 - The previous API had very slow response times, and could only handle around 20 requests per second.
 
-# Tech Stack
+<h2>Tech Stack</h2>
 <div>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black" />
   <img src="https://img.shields.io/badge/Express.js-000000.svg?style=for-the-badge&logo=Express&logoColor=white" />
@@ -14,6 +14,15 @@
   <img src="https://img.shields.io/badge/New%20Relic-008C99.svg?style=for-the-badge&logo=New-Relic&logoColor=white" />
 </ div>
 
-# Results
+<h2>Results</h2>
 <h3>Goal</h3>
-
+<tr>
+  <th>Throughput<th>
+  <th>Latency<th>
+  <th>Error Rate<th>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
