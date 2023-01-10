@@ -28,3 +28,31 @@
     <td></td>
   </tr>
 </table>
+
+<h3>Deployment</h3>
+<table>
+  <tr>
+    <th>Throughput</th>
+    <th>Latency</th>
+    <th>Error Rate</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<h3>Load Balancer</h3>
+<table>
+  <tr>
+    <th>Throughput</th>
+    <th>Latency</th>
+    <th>Error Rate</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
