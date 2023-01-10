@@ -16,6 +16,7 @@
 
 <h2>Results</h2>
 <h3>Goal</h3>
+<p>The client requested the new back end be able to handle 1000 requests per second with an average response time of less than 2 seconds and an error rate of under 1%.</p>
 <table>
   <tr>
     <th>Throughput</th>
@@ -30,6 +31,7 @@
 </table>
 
 <h3>Deployment</h3>
+<p>I first deployed the server and database to AWS using an EC2 T2 micro instance. I stress tested using Loader.io with a random productID in the last 10% of my database.</p>
 <table>
   <tr>
     <th>Throughput</th>
@@ -44,6 +46,7 @@
 </table>
 
 <h3>Load Balancer</h3>
+<p>Since I was already meeting the client's goals for the backend, I scaled my server horizontally by implementing a load balancer. I used a NGINX load balancer with a least connection balancing method. Adding a second server added some security in case one server went down and also allowed me to double my Throughput, at the expense of a small amount of latency.</p>
 <table>
   <tr>
     <th>Throughput</th>
