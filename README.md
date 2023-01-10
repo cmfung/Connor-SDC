@@ -15,8 +15,6 @@
 </ div>
 
 <h2>Results</h2>
-<h3>Data</h3>
-<p>I worked with over 12 million lines of data. I was given 3 seperate CSV files, each containing a different piece of related data. I designed a postgreSQL schema with 3 tables and loaded all of the data into my database.</p>
 <h3>Goal</h3>
 <p>The client requested the new back end be able to handle 1000 requests per second with an average response time of less than 2 seconds and an error rate of under 1%.</p>
 <table>
@@ -29,6 +27,27 @@
     <td>1000rps</td>
     <td>2000ms</td>
     <td><1%</td>
+  </tr>
+</table>
+
+<h3>Data</h3>
+<p>I worked with over 12 million lines of data. I was given 3 seperate CSV files, each containing a different piece of related data. I designed a postgreSQL schema with 3 tables and loaded all of the data into my database.</p>
+
+<h3>Server Build</h3>
+<p>I built my server using Node.js and Express.js and connected to my postgreSQL database. I used nested queries to access the data I needed from all 3 tables simultaneously.</p>
+
+<h3>Deployment</h3>
+<p>Before deployment I tested my server locally using k6.</p>
+<table>
+  <tr>
+    <th>Throughput</th>
+    <th>Latency</th>
+    <th>Error Rate</th>
+  </tr>
+  <tr>
+    <td>2000rps</td>
+    <td>30ms</td>
+    <td>0%</td>
   </tr>
 </table>
 
