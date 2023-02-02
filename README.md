@@ -2,10 +2,6 @@
 - Inherited a front-end e-commerce web application. Was tasked with replacing a monolithic API with microservices to support the inherited website.
 - The previous API had very slow response times, and could only handle around 20 requests per second.
 
-# Setup
-- Run npm install or npm i
-- Run npm run server-dev and npm run client-dev in two separate terminals
-
 <h2>Tech Stack</h2>
 <div>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black" />
